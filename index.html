@@ -430,7 +430,7 @@
             try {
               const responses = await Promise.allSettled([
                 fetch("./json/games.json").then((r) => r.json()),
-                fetch(cdnUrl2 + "https://mathcenter.space/cdn/all").then((r) =>
+                fetch(cdnUrl2 + "https://rnscdn-2267b.kxcdn.com/cdn/all").then((r) =>
                   r.json()
                 ),
               ]);
