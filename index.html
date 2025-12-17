@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lunaar Lite v1.0.0</title>
+    <title>StarlightGG</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="media/logo.svg" type="image/x-icon" />
     <script
@@ -17,35 +17,81 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+      /* * SOFT UI / LIGHT BLUE THEME 
+       * Based on light background for neumorphism effect 
+      */
       :root {
-        --primary-color: #9282fb;
-        --secondary-color: #613367;
-        --accent-color: #b263a6;
-        --bg-2-color: #171527;
-        --bg-color: #090810;
-        --text-color: #e5e4f2;
-        --text-secondary-color: #b0b0b0;
-        --text-placeholder-color: #6c6c6c;
-        --border-color: #2c2c3f;
+        --bg-light: #e0f7fa; /* Light Blue Background */
+        --bg-medium: #ffffff; /* Brighter surface for elements */
+        --primary-color: #00bcd4; /* Cyan/Light Blue Accent */
+        --secondary-color: #00838f; /* Darker Cyan */
+        --text-color: #212121;
+        --text-secondary-color: #616161;
+        --text-placeholder-color: #9e9e9e;
+        --border-color: #bdbdbd;
+
         --font-family: "Poppins", sans-serif;
         --font-size: 16px;
-        --border-radius: 12px;
+        --border-radius: 16px;
+        
+        /* Neumorphism Shadows */
+        --shadow-light: #ffffff;
+        --shadow-dark: #b3d1d4;
       }
 
       body {
-        background-color: var(--bg-color);
+        background-color: var(--bg-light);
         color: var(--text-color);
         font-family: var(--font-family);
         font-size: var(--font-size);
       }
 
+      /* Neumorphism Base Styles */
+      .soft-ui {
+        border-radius: var(--border-radius);
+        background: var(--bg-medium);
+        box-shadow: 8px 8px 16px var(--shadow-dark),
+                   -8px -8px 16px var(--shadow-light);
+        transition: all 0.3s ease;
+      }
+      
+      .soft-ui-inset {
+        border-radius: var(--border-radius);
+        background: var(--bg-light);
+        box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                    inset -5px -5px 10px var(--shadow-light);
+        transition: all 0.3s ease;
+      }
+
+      /* Game Card Hover Effect (Press) */
+      .soft-ui:hover {
+        box-shadow: 4px 4px 8px var(--shadow-dark),
+                   -4px -4px 8px var(--shadow-light);
+        transform: translateY(-2px);
+      }
+      .soft-ui:active {
+        box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                    inset -5px -5px 10px var(--shadow-light);
+        transform: translateY(0);
+      }
+      
+      /* Input specific neumorphic styling */
+      .soft-ui-input {
+          /* Use soft-ui-inset styling for inputs */
+          padding: 1rem;
+          border: none;
+          color: var(--text-color);
+          background-color: var(--bg-light);
+      }
+
+      /* Popup Styles Adaptation */
       .game-popup-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.5); /* Darker overlay for focus */
         z-index: 9999;
         backdrop-filter: blur(5px);
         display: flex;
@@ -59,12 +105,15 @@
         height: 95%;
         max-width: 1400px;
         max-height: 900px;
-        background: var(--bg-2-color);
+        /* Popup uses the soft-ui style */
+        background: var(--bg-medium);
         border-radius: var(--border-radius);
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 
+                    8px 8px 16px var(--shadow-dark),
+                   -8px -8px 16px var(--shadow-light);
       }
 
       .game-popup-header {
@@ -73,6 +122,7 @@
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid var(--border-color);
+        background: var(--bg-light); /* Header slightly lighter */
       }
 
       .game-popup-title {
@@ -83,11 +133,14 @@
         text-align: center;
       }
 
+      /* Neumorphic buttons in popup header */
       .game-popup-close,
       .game-popup-fullscreen {
-        background: var(--border-color);
+        /* Use soft-ui-inset for button press effect */
+        background: var(--bg-light);
+        box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
         border: none;
-        color: var(--text-color);
+        color: var(--text-secondary-color);
         width: 36px;
         height: 36px;
         border-radius: 8px;
@@ -101,14 +154,18 @@
 
       .game-popup-close:hover,
       .game-popup-fullscreen:hover {
-        background: var(--secondary-color);
-        transform: scale(1.05);
+        color: var(--primary-color);
+      }
+      .game-popup-close:active,
+      .game-popup-fullscreen:active {
+        box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+        transform: scale(0.95);
       }
 
       .game-popup-content {
         flex: 1;
         position: relative;
-        background: var(--bg-color);
+        background: var(--bg-light);
       }
 
       .game-popup-content iframe {
@@ -117,6 +174,7 @@
         border: none;
       }
 
+      /* Loader */
       .game-popup-loader {
         position: absolute;
         top: 50%;
@@ -124,7 +182,7 @@
         transform: translate(-50%, -50%);
         width: 50px;
         height: 50px;
-        border: 4px solid rgba(146, 130, 251, 0.2);
+        border: 4px solid rgba(0, 188, 212, 0.2);
         border-top-color: var(--primary-color);
         border-radius: 50%;
         animation: spin 1s linear infinite;
@@ -145,81 +203,66 @@
         }
       }
 
+      /* Tailwind Overrides for Color Consistency */
       .bg-gray-900 {
-        background-color: var(--bg-color) !important;
+        background-color: var(--bg-light) !important;
       }
-
       .text-white {
         color: var(--text-color) !important;
       }
-
       .bg-gray-800 {
-        background-color: var(--bg-2-color) !important;
+        background-color: var(--bg-medium) !important;
       }
-
       .text-gray-400 {
         color: var(--text-secondary-color) !important;
       }
-
       .border-gray-700 {
         border-color: var(--border-color) !important;
       }
-
       .focus\:border-purple-500:focus {
         border-color: var(--primary-color) !important;
       }
-
       .text-purple-500 {
         color: var(--primary-color) !important;
       }
-
       .text-gray-500 {
         color: var(--text-placeholder-color) !important;
       }
-
+      
+      /* Highlight Colors */
       .text-red-500 {
-        color: var(--accent-color) !important;
+        color: #e57373 !important; /* Light Red */
       }
-
       .text-green-500 {
-        color: var(--secondary-color) !important;
+        color: #81c784 !important; /* Light Green */
       }
-
       .text-yellow-500 {
-        color: #b263a6 !important;
+        color: #ffb74d !important; /* Light Orange */
       }
-
       .text-blue-500 {
         color: var(--primary-color) !important;
       }
-
       .bg-red-500 {
-        background-color: var(--accent-color) !important;
+        background-color: #e57373 !important;
       }
-
       .bg-green-500 {
-        background-color: var(--secondary-color) !important;
+        background-color: #81c784 !important;
       }
-
       .bg-yellow-500 {
-        background-color: #b263a6 !important;
+        background-color: #ffb74d !important;
       }
-
       .bg-blue-500 {
         background-color: var(--primary-color) !important;
       }
-
-      .shadow-purple-500\/50 {
-        box-shadow: 0 0 20px rgba(146, 130, 251, 0.5) !important;
-      }
-
-      .text-gray-500 {
-        color: var(--text-placeholder-color) !important;
+      
+      /* Game Card Shadow */
+      .hover\:shadow-purple-500\/50:hover {
+        box-shadow: 4px 4px 8px rgba(0, 188, 212, 0.2), 
+                   -4px -4px 8px var(--shadow-light) !important;
       }
     </style>
   </head>
 
-  <!-- Google tag (gtag.js) -->
   <script
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-9NXH6G254G"
@@ -243,19 +286,10 @@
           class="w-16 h-16 mx-auto mb-4"
         />
         <h1 class="text-4xl font-bold text-center">
-          <span>Lunaar Lite</span>
+          <span class="text-primary-color">StarlightGG</span>
         </h1>
-        <div class="flex text-center justify-center gap-4">
-          <a href="https://dsc.gg/parcoil" class="text-purple-500 underline"
-            >Join Our Discord</a
-          >
-          <a
-            href="https://docs.lunaar.org/deployment/lite/"
-            class="text-purple-500 underline"
-            >How to deploy your own</a
-          >
-        </div>
-        <p class="text-center mt-2 text-sm">v1.0.0</p>
+
+        <p class="text-center mt-2 text-sm text-gray-400">v1.0.0 (Soft UI)</p>
       </header>
 
       <main class="container mx-auto p-4 max-w-7xl">
@@ -265,7 +299,7 @@
             x-model="searchQuery"
             @input="applyFilters()"
             :placeholder="searchPlaceholder"
-            class="w-full px-4 py-3 bg-gray-800 text-white rounded-2xl border border-gray-700 focus:outline-none focus:border-purple-500 transition"
+            class="soft-ui-inset w-full px-4 py-3 rounded-2xl focus:outline-none focus:border-primary transition"
           />
 
           <div class="text-center text-gray-400">
@@ -288,11 +322,11 @@
 
         <div
           x-show="!loading && filteredGames.length > 0"
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
         >
           <template x-for="(game, index) in filteredGames" :key="index">
             <div
-              class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-purple-500/50 transition-all hover:scale-105 cursor-pointer"
+              class="soft-ui overflow-hidden shadow-lg hover:shadow-purple-500/50 cursor-pointer"
               @click="openGame(game)"
             >
               <div class="relative aspect-square bg-gray-700">
@@ -354,6 +388,9 @@
               x-text="currentGame?.name || 'Loading...'"
             ></div>
             <div style="display: flex; flex-direction: row; gap: 4px">
+              <button class="game-popup-fullscreen" @click="refreshGame()">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
               <button class="game-popup-fullscreen" @click="fullscreenPopup()">
                 <i class="fa-solid fa-expand"></i>
               </button>
@@ -373,30 +410,8 @@
           </div>
         </div>
       </div>
-
-      <div
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-        x-show="showWarningModal"
-        x-transition
-      >
-        <div class="bg-gray-800 p-6 rounded-lg max-w-md mx-4">
-          <h2 class="text-xl font-bold mb-4 text-white">Important Notice</h2>
-          <p class="text-gray-300 mb-4">
-            If you fork this repository, remember to sync your fork periodically
-            to keep the games list updated and ensure all games continue working
-            properly.
-          </p>
-          <button
-            @click="showWarningModal = false; localStorage.setItem('warningModalShown', 'true');"
-            class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl"
-          >
-            Got it!
-          </button>
-        </div>
-      </div>
-
       <footer class="mt-12 py-6 text-center text-gray-500 text-sm">
-        <p>Lunaar Lite v1.0.0 - Made with ❤️</p>
+        <p>StarlightGG Hub</p>
       </footer>
     </div>
 
@@ -414,17 +429,15 @@
           popupOpen: false,
           gameLoading: true,
           currentGame: null,
-          showWarningModal: true,
+          // Removed: showWarningModal
 
           async init() {
-            this.showWarningModal =
-              !window.location.search.includes("nomodal") &&
-              !localStorage.getItem("warningModalShown");
+            // Removed: showWarningModal logic
 
             console.log(
               "%cLunaar%c Lite v1.0.0 - Loading...",
-              "font-size: 16px; background-color: #9282fb; border-radius: 5px 0 0 5px; padding: 4px; font-weight: bold;",
-              "font-size: 16px; background-color: #090810; font-weight: bold; padding: 4px; border-radius: 0 5px 5px 0;"
+              "font-size: 16px; background-color: #00bcd4; border-radius: 5px 0 0 5px; padding: 4px; font-weight: bold; color: white;",
+              "font-size: 16px; background-color: #e0f7fa; font-weight: bold; padding: 4px; border-radius: 0 5px 5px 0; color: #212121;"
             );
 
             try {
@@ -495,8 +508,13 @@
             await this.$nextTick();
             const iframe = this.$refs.gameFrame;
             console.log("Iframe ref:", iframe);
-
-            if (game.url?.includes("jsdelivr")) {
+            
+            // This is the core logic that re-opens the game
+            this.loadIframeContent(iframe, game);
+          },
+          
+          async loadIframeContent(iframe, game) {
+             if (game.url?.includes("jsdelivr")) {
               try {
                 const response = await fetch(game.url);
                 const html = await response.text();
@@ -515,6 +533,18 @@
             } else {
               iframe.style.display = "block";
               iframe.src = game.url;
+            }
+          },
+
+          // NEW: Function to reload the game in the iframe
+          refreshGame() {
+            console.log("Refreshing game:", this.currentGame?.name);
+            if (this.currentGame) {
+              // Re-run the loading process
+              const iframe = this.$refs.gameFrame;
+              iframe.src = "about:blank"; // Clear the iframe first
+              this.gameLoading = true;
+              this.loadIframeContent(iframe, this.currentGame);
             }
           },
 
