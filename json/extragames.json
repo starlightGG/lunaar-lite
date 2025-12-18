@@ -321,24 +321,6 @@
     "new": false
   },
   {
-    "name": "CTR",
-    "image": "logo.png",
-    "url": "ctr",
-    "new": false
-  },
-  {
-    "name": "CTR Holiday",
-    "image": "favicon.ico",
-    "url": "ctr-holiday",
-    "new": false
-  },
-  {
-    "name": "CTR TR",
-    "image": "logo.png",
-    "url": "ctr-tr",
-    "new": false
-  },
-  {
     "name": "Cubefield",
     "image": "assets/unnamed.png",
     "url": "cubefield",
