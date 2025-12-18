@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StarlightGG</title>
     <script src="https://cdn.tailwindcss.com"></script>
-<link rel="icon" type="image/png" href="media/favicon.png">
-    <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-      defer
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-      /* * SOFT UI / LIGHT BLUE THEME 
-       * Based on light background for neumorphism effect 
-      */
       :root {
-        --bg-light: #e0f7fa; /* Light Blue Background */
-        --bg-medium: #ffffff; /* Brighter surface for elements */
-        --primary-color: #00bcd4; /* Cyan/Light Blue Accent */
-        --secondary-color: #00838f; /* Darker Cyan */
+        --bg-light: #e0f7fa; 
+        --bg-medium: #ffffff;
+        --primary-color: #00bcd4;
+        --secondary-color: #00838f;
         --text-color: #212121;
         --text-secondary-color: #616161;
         --text-placeholder-color: #9e9e9e;
         --border-color: #bdbdbd;
-
         --font-family: "Poppins", sans-serif;
-        --font-size: 16px;
         --border-radius: 16px;
-        
-        /* Neumorphism Shadows */
         --shadow-light: #ffffff;
         --shadow-dark: #b3d1d4;
       }
@@ -43,61 +30,39 @@
         background-color: var(--bg-light);
         color: var(--text-color);
         font-family: var(--font-family);
-        font-size: var(--font-size);
       }
 
-      /* Neumorphism Base Styles */
       .soft-ui {
         border-radius: var(--border-radius);
         background: var(--bg-medium);
-        box-shadow: 8px 8px 16px var(--shadow-dark),
-                   -8px -8px 16px var(--shadow-light);
+        box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
         transition: all 0.3s ease;
       }
       
       .soft-ui-inset {
         border-radius: var(--border-radius);
         background: var(--bg-light);
-        box-shadow: inset 5px 5px 10px var(--shadow-dark),
-                    inset -5px -5px 10px var(--shadow-light);
+        box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
         transition: all 0.3s ease;
       }
 
-      /* Game Card Hover Effect (Press) */
       .soft-ui:hover {
-        box-shadow: 4px 4px 8px var(--shadow-dark),
-                   -4px -4px 8px var(--shadow-light);
         transform: translateY(-2px);
-      }
-      .soft-ui:active {
-        box-shadow: inset 5px 5px 10px var(--shadow-dark),
-                    inset -5px -5px 10px var(--shadow-light);
-        transform: translateY(0);
-      }
-      
-      /* Input specific neumorphic styling */
-      .soft-ui-input {
-          /* Use soft-ui-inset styling for inputs */
-          padding: 1rem;
-          border: none;
-          color: var(--text-color);
-          background-color: var(--bg-light);
+        box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
       }
 
-      /* Popup Styles Adaptation */
       .game-popup-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Darker overlay for focus */
+        background: rgba(0, 0, 0, 0.5);
         z-index: 9999;
         backdrop-filter: blur(5px);
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: fadeIn 0.3s ease;
       }
 
       .game-popup-container {
@@ -105,15 +70,12 @@
         height: 95%;
         max-width: 1400px;
         max-height: 900px;
-        /* Popup uses the soft-ui style */
         background: var(--bg-medium);
         border-radius: var(--border-radius);
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 
-                    8px 8px 16px var(--shadow-dark),
-                   -8px -8px 16px var(--shadow-light);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       }
 
       .game-popup-header {
@@ -121,26 +83,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background: var(--bg-light);
         border-bottom: 1px solid var(--border-color);
-        background: var(--bg-light); /* Header slightly lighter */
       }
 
-      .game-popup-title {
-        color: var(--text-color);
-        font-size: 18px;
-        font-weight: 600;
-        flex: 1;
-        text-align: center;
-      }
-
-      /* Neumorphic buttons in popup header */
-      .game-popup-close,
-      .game-popup-fullscreen {
-        /* Use soft-ui-inset for button press effect */
+      .game-popup-close, .game-popup-fullscreen {
         background: var(--bg-light);
         box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
         border: none;
-        color: var(--text-secondary-color);
         width: 36px;
         height: 36px;
         border-radius: 8px;
@@ -149,32 +99,12 @@
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease;
-        font-size: 18px;
       }
 
-      .game-popup-close:hover,
-      .game-popup-fullscreen:hover {
-        color: var(--primary-color);
-      }
-      .game-popup-close:active,
-      .game-popup-fullscreen:active {
+      .game-popup-close:active, .game-popup-fullscreen:active {
         box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
-        transform: scale(0.95);
       }
 
-      .game-popup-content {
-        flex: 1;
-        position: relative;
-        background: var(--bg-light);
-      }
-
-      .game-popup-content iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      /* Loader */
       .game-popup-loader {
         position: absolute;
         top: 50%;
@@ -188,108 +118,18 @@
         animation: spin 1s linear infinite;
       }
 
-      @keyframes spin {
-        to {
-          transform: translate(-50%, -50%) rotate(360deg);
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* Tailwind Overrides for Color Consistency */
-      .bg-gray-900 {
-        background-color: var(--bg-light) !important;
-      }
-      .text-white {
-        color: var(--text-color) !important;
-      }
-      .bg-gray-800 {
-        background-color: var(--bg-medium) !important;
-      }
-      .text-gray-400 {
-        color: var(--text-secondary-color) !important;
-      }
-      .border-gray-700 {
-        border-color: var(--border-color) !important;
-      }
-      .focus\:border-purple-500:focus {
-        border-color: var(--primary-color) !important;
-      }
-      .text-purple-500 {
-        color: var(--primary-color) !important;
-      }
-      .text-gray-500 {
-        color: var(--text-placeholder-color) !important;
-      }
-      
-      /* Highlight Colors */
-      .text-red-500 {
-        color: #e57373 !important; /* Light Red */
-      }
-      .text-green-500 {
-        color: #81c784 !important; /* Light Green */
-      }
-      .text-yellow-500 {
-        color: #ffb74d !important; /* Light Orange */
-      }
-      .text-blue-500 {
-        color: var(--primary-color) !important;
-      }
-      .bg-red-500 {
-        background-color: #e57373 !important;
-      }
-      .bg-green-500 {
-        background-color: #81c784 !important;
-      }
-      .bg-yellow-500 {
-        background-color: #ffb74d !important;
-      }
-      .bg-blue-500 {
-        background-color: var(--primary-color) !important;
-      }
-      
-      /* Game Card Shadow */
-      .hover\:shadow-purple-500\/50:hover {
-        box-shadow: 4px 4px 8px rgba(0, 188, 212, 0.2), 
-                   -4px -4px 8px var(--shadow-light) !important;
-      }
+      @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
   </head>
 
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-9NXH6G254G"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-9NXH6G254G");
-  </script>
-
-  <body class="bg-gray-900 text-white min-h-screen">
+  <body class="min-h-screen">
     <div x-data="gamesApp()" x-init="init()">
       <header class="p-6">
-        <img
-          src="media/favicon.png"
-          alt="StarlightGG Logo"
-          class="w-16 h-16 mx-auto mb-4"
-        />
+        <img src="media/favicon.png" alt="Logo" class="w-16 h-16 mx-auto mb-4" />
         <h1 class="text-4xl font-bold text-center">
-          <span class="text-primary-color">StarlightGG</span>
+          <span style="color: var(--primary-color)">StarlightGG</span>
         </h1>
-
-        <p class="text-center mt-2 text-sm text-gray-400">v1.0.0 (Soft UI)</p>
+        <p class="text-center mt-2 text-sm text-gray-500">v1.0.0 (Local JSON Mode)</p>
       </header>
 
       <main class="container mx-auto p-4 max-w-7xl">
@@ -299,281 +139,149 @@
             x-model="searchQuery"
             @input="applyFilters()"
             :placeholder="searchPlaceholder"
-            class="soft-ui-inset w-full px-4 py-3 rounded-2xl focus:outline-none focus:border-primary transition"
+            class="soft-ui-inset w-full px-4 py-3 focus:outline-none transition"
           />
-
-          <div class="text-center text-gray-400">
-            <span x-text="filteredGames.length"></span> games available
+          <div class="text-center text-gray-500">
+            <span x-text="filteredGames.length"></span> games found
           </div>
         </div>
 
         <div x-show="loading" class="text-center py-12">
-          <i class="fa-solid fa-spinner fa-spin text-4xl text-purple-500"></i>
-          <p class="mt-4 text-gray-400">Loading games...</p>
+          <i class="fa-solid fa-spinner fa-spin text-4xl" style="color: var(--primary-color)"></i>
+          <p class="mt-4 text-gray-500">Syncing game libraries...</p>
         </div>
 
-        <div
-          x-show="!loading && filteredGames.length === 0"
-          class="text-center py-12"
-        >
-          <i class="fa-solid fa-circle-exclamation text-4xl text-gray-500"></i>
-          <p class="mt-4 text-gray-400">No games found.</p>
+        <div x-show="!loading && filteredGames.length === 0" class="text-center py-12">
+          <i class="fa-solid fa-circle-exclamation text-4xl text-gray-400"></i>
+          <p class="mt-4 text-gray-500">No games found in your collection.</p>
         </div>
 
-        <div
-          x-show="!loading && filteredGames.length > 0"
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
+        <div x-show="!loading && filteredGames.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           <template x-for="(game, index) in filteredGames" :key="index">
-            <div
-              class="soft-ui overflow-hidden shadow-lg hover:shadow-purple-500/50 cursor-pointer"
-              @click="openGame(game)"
-            >
-              <div class="relative aspect-square bg-gray-700">
-                <img
-                  :src="getGameImage(game)"
-                  :alt="game.name"
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            <div class="soft-ui overflow-hidden cursor-pointer" @click="openGame(game)">
+              <div class="relative aspect-square bg-gray-200">
+                <img :src="getGameImage(game)" :alt="game.name" class="w-full h-full object-cover" loading="lazy" />
                 <div class="absolute top-2 left-2 flex flex-col gap-1">
-                  <span
-                    x-show="game.top"
-                    class="bg-red-500 text-white text-xs px-2 py-1 rounded font-bold"
-                  >
-                    <i class="fa-solid fa-fire"></i> HOT
-                  </span>
-                  <span
-                    x-show="game.new"
-                    class="bg-green-500 text-white text-xs px-2 py-1 rounded font-bold"
-                  >
-                    <i class="fa-solid fa-sparkles"></i> NEW
-                  </span>
-                  <span
-                    x-show="game.exp"
-                    class="bg-yellow-500 text-white text-xs px-2 py-1 rounded font-bold"
-                  >
-                    <i class="fa-solid fa-vial"></i> EXP
-                  </span>
-                  <span
-                    x-show="game.updated"
-                    class="bg-blue-500 text-white text-xs px-2 py-1 rounded font-bold"
-                  >
-                    <i class="fa-solid fa-sparkles"></i> UPDATED
-                  </span>
+                  <template x-if="game.top"><span class="bg-red-500 text-white text-[10px] px-2 py-1 rounded font-bold">HOT</span></template>
+                  <template x-if="game.new"><span class="bg-green-500 text-white text-[10px] px-2 py-1 rounded font-bold">NEW</span></template>
                 </div>
               </div>
-
               <div class="p-3">
-                <p
-                  class="text-sm font-semibold text-center truncate"
-                  x-text="game.name"
-                ></p>
+                <p class="text-xs font-semibold text-center truncate" x-text="game.name"></p>
               </div>
             </div>
           </template>
         </div>
       </main>
 
-      <div
-        class="game-popup-overlay"
-        x-show="popupOpen"
-        @click.self="closePopup()"
-      >
+      <div class="game-popup-overlay" x-show="popupOpen" x-cloak @click.self="closePopup()">
         <div class="game-popup-container">
           <div class="game-popup-header">
             <div style="width: 36px"></div>
-            <div
-              class="game-popup-title"
-              x-text="currentGame?.name || 'Loading...'"
-            ></div>
-            <div style="display: flex; flex-direction: row; gap: 4px">
-              <button class="game-popup-fullscreen" @click="refreshGame()">
-                <i class="fa-solid fa-rotate-right"></i>
-              </button>
-              <button class="game-popup-fullscreen" @click="fullscreenPopup()">
-                <i class="fa-solid fa-expand"></i>
-              </button>
-              <button class="game-popup-close" @click="closePopup()">
-                <i class="fa-solid fa-times"></i>
-              </button>
+            <div class="font-bold" x-text="currentGame?.name"></div>
+            <div class="flex gap-2">
+              <button class="game-popup-fullscreen" @click="refreshGame()"><i class="fa-solid fa-rotate-right"></i></button>
+              <button class="game-popup-fullscreen" @click="fullscreenPopup()"><i class="fa-solid fa-expand"></i></button>
+              <button class="game-popup-close" @click="closePopup()"><i class="fa-solid fa-times"></i></button>
             </div>
           </div>
-          <div class="game-popup-content">
+          <div class="relative flex-1 bg-black">
             <div x-show="gameLoading" class="game-popup-loader"></div>
-            <iframe
-              x-ref="gameFrame"
-              @load="gameLoading = false"
-              style="display: none"
-              x-show="!gameLoading"
-            ></iframe>
+            <iframe x-ref="gameFrame" @load="gameLoading = false" class="w-full h-full border-none" x-show="!gameLoading"></iframe>
           </div>
         </div>
       </div>
-      <footer class="mt-12 py-6 text-center text-gray-500 text-sm">
-        <p>StarlightGG Hub</p>
-      </footer>
     </div>
 
     <script>
       const cdnUrl = "https://lucdn.eduwing.org";
-      const cdnUrl2 = "https://corsproxy.io/?url=";
 
       function gamesApp() {
         return {
           allGames: [],
           filteredGames: [],
           searchQuery: "",
-          searchPlaceholder: "Search for games",
+          searchPlaceholder: "Loading...",
           loading: true,
           popupOpen: false,
-          gameLoading: true,
+          gameLoading: false,
           currentGame: null,
-          // Removed: showWarningModal
 
           async init() {
-            // Removed: showWarningModal logic
-
-            console.log(
-              "%cStarlightGG%c - Loading...",
-              "font-size: 16px; background-color: #00bcd4; border-radius: 5px 0 0 5px; padding: 4px; font-weight: bold; color: white;",
-              "font-size: 16px; background-color: #e0f7fa; font-weight: bold; padding: 4px; border-radius: 0 5px 5px 0; color: #212121;"
-            );
-
             try {
-              const responses = await Promise.allSettled([
-                fetch("./json/games.json").then((r) => r.json()),
-                fetch(cdnUrl2 + "https://lucdn.eduwing.org/cdn/all").then((r) =>
-                  r.json()
-                ),
+              // Fetch both local files
+              const [localRes, extraRes] = await Promise.allSettled([
+                fetch("./json/games.json").then(r => r.json()),
+                fetch("./json/extragames.json").then(r => r.json())
               ]);
 
-              this.allGames = responses
-                .filter((r) => r.status === "fulfilled")
-                .flatMap((r) => r.value);
+              let combined = [];
+              if (localRes.status === 'fulfilled') combined = [...combined, ...localRes.value];
+              if (extraRes.status === 'fulfilled') combined = [...combined, ...extraRes.value];
 
-              console.log(`Loaded ${this.allGames.length} games`);
-              this.searchPlaceholder = `Search for ${this.allGames.length} games`;
+              // Pre-sort: Requests first, then New/Hot, then Alphabetical
+              this.allGames = combined.sort((a, b) => {
+                if (a.name.includes("Request")) return -1;
+                if (b.name.includes("Request")) return 1;
+                return a.name.localeCompare(b.name);
+              });
+
               this.applyFilters();
-            } catch (error) {
-              console.error("Error loading games:", error);
+            } catch (e) {
+              console.error("Load failed", e);
             } finally {
               this.loading = false;
             }
           },
 
           applyFilters() {
-            let filtered = this.allGames;
-
-            if (this.searchQuery) {
-              filtered = filtered.filter((game) =>
-                game.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-              );
-            }
-
-            filtered = [...filtered].sort((a, b) => {
-              if (a.name === "Request a game") return -1;
-              if (b.name === "Request a game") return 1;
-              if (a.new && !b.new) return -1;
-              if (!a.new && b.new) return 1;
-              if (a.top && !b.top) return -1;
-              if (!a.top && b.top) return 1;
-              return 0;
-            });
-
-            this.filteredGames = filtered;
-            this.searchPlaceholder = `Search for ${filtered.length} game${
-              filtered.length !== 1 ? "s" : ""
-            }`;
+            const query = this.searchQuery.toLowerCase();
+            this.filteredGames = this.allGames.filter(g => g.name.toLowerCase().includes(query));
+            this.searchPlaceholder = `Search ${this.allGames.length} games...`;
           },
 
           getGameImage(game) {
-            if (game.image?.startsWith("https://")) {
-              return game.image;
-            }
-            if (game.proxy) {
-              return cdnUrl + `/media/games/${game.image}`;
-            } else {
-              const firstSegment = game.url?.split("/")[0] || "";
-              return cdnUrl + `/cdn/${firstSegment}/${game.image}`;
-            }
+            if (game.image?.startsWith("http")) return game.image;
+            if (game.proxy) return `${cdnUrl}/media/games/${game.image}`;
+            const folder = game.url?.split("/")[0] || "";
+            return `${cdnUrl}/cdn/${folder}/${game.image}`;
           },
 
           async openGame(game) {
-            console.log("Opening game:", game.name);
             this.currentGame = game;
             this.popupOpen = true;
             this.gameLoading = true;
-
             await this.$nextTick();
-            const iframe = this.$refs.gameFrame;
-            console.log("Iframe ref:", iframe);
-            
-            // This is the core logic that re-opens the game
-            this.loadIframeContent(iframe, game);
+            this.loadIframe(game);
           },
-          
-          async loadIframeContent(iframe, game) {
-             if (game.url?.includes("jsdelivr")) {
-              try {
-                const response = await fetch(game.url);
-                const html = await response.text();
-                iframe.style.display = "block";
+
+          async loadIframe(game) {
+            const iframe = this.$refs.gameFrame;
+            if (game.url.includes("jsdelivr")) {
+                const res = await fetch(game.url);
+                const html = await res.text();
                 iframe.contentDocument.open();
                 iframe.contentDocument.write(html);
                 iframe.contentDocument.close();
-                this.gameLoading = false;
-              } catch (error) {
-                console.error("Error loading jsdelivr content:", error);
-                this.gameLoading = false;
-              }
-            } else if (!game.proxy) {
-              iframe.style.display = "block";
-              iframe.src = cdnUrl + `/cdn/${game.url}/`;
             } else {
-              iframe.style.display = "block";
-              iframe.src = game.url;
+                iframe.src = game.proxy ? game.url : `${cdnUrl}/cdn/${game.url}/`;
             }
           },
 
-          // NEW: Function to reload the game in the iframe
           refreshGame() {
-            console.log("Refreshing game:", this.currentGame?.name);
-            if (this.currentGame) {
-              // Re-run the loading process
-              const iframe = this.$refs.gameFrame;
-              iframe.src = "about:blank"; // Clear the iframe first
-              this.gameLoading = true;
-              this.loadIframeContent(iframe, this.currentGame);
-            }
+            this.gameLoading = true;
+            this.loadIframe(this.currentGame);
           },
 
           closePopup() {
-            console.log("Closing popup");
             this.popupOpen = false;
-            this.currentGame = null;
-            this.gameLoading = true;
-
-            const iframe = this.$refs.gameFrame;
-            if (iframe) {
-              iframe.src = "about:blank";
-              iframe.style.display = "none";
-            }
+            this.$refs.gameFrame.src = "about:blank";
           },
 
           fullscreenPopup() {
-            const iframe = this.$refs.gameFrame;
-            if (iframe.requestFullscreen) {
-              iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) {
-              iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-              iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-              iframe.msRequestFullscreen();
-            }
-          },
-        };
+            this.$refs.gameFrame.requestFullscreen?.();
+          }
+        }
       }
     </script>
   </body>
