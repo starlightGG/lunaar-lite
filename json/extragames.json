@@ -75,18 +75,6 @@
     "new": false
   },
   {
-    "name": "A Dance of Fire and Ice",
-    "image": "splash.png",
-    "url": "a-dance-of-fire-and-ice",
-    "new": false
-  },
-  {
-    "name": "Achievement Unlocked",
-    "image": "achievementunlocked.png",
-    "url": "achievementunlocked",
-    "new": false
-  },
-  {
     "name": "A Dark Room",
     "image": "splash.png",
     "url": "adarkroom",
@@ -153,18 +141,6 @@
     "new": false
   },
   {
-    "name": "Bloons TD",
-    "image": "bloonstd.jpg",
-    "url": "bloonstd",
-    "new": false
-  },
-  {
-    "name": "Bloons TD 2",
-    "image": "bloonstd2.png",
-    "url": "bloonstd2",
-    "new": false
-  },
-  {
     "name": "Bloxors",
     "image": "title.png",
     "url": "bloxors",
@@ -177,21 +153,9 @@
     "new": false
   },
   {
-    "name": "Bob the Robber 2",
-    "image": "splash.jpeg",
-    "url": "bobtherobber2",
-    "new": false
-  },
-  {
     "name": "Boxhead 2 Play",
     "image": "boxhead2play.jpg",
     "url": "boxhead2play",
-    "new": false
-  },
-  {
-    "name": "Boxing Random",
-    "image": "512x512.jpg",
-    "url": "boxing-random",
     "new": false
   },
   {
@@ -267,12 +231,6 @@
     "new": false
   },
   {
-    "name": "Cluster Rush",
-    "image": "splash.png",
-    "url": "cluster-rush",
-    "new": false
-  },
-  {
     "name": "CN Ping Pong",
     "image": "tabletennisultimate.png",
     "url": "cnpingpong",
@@ -284,7 +242,6 @@
     "url": "connect3",
     "new": false
   },
-
   {
     "name": "Craftmine",
     "image": "images/animal-sheet0.png",
@@ -298,21 +255,9 @@
     "new": false
   },
   {
-    "name": "Crossy Road",
-    "image": "crossyroad.png",
-    "url": "crossyroad",
-    "new": false
-  },
-  {
     "name": "CS:GO Clicker",
     "image": "images/case1.png",
     "url": "csgo-clicker",
-    "new": false
-  },
-  {
-    "name": "Cubefield",
-    "image": "assets/unnamed.png",
-    "url": "cubefield",
     "new": false
   },
   {
@@ -391,12 +336,6 @@
     "name": "Drift Hunters",
     "image": "drift-hunters.png",
     "url": "drift-hunters",
-    "new": false
-  },
-  {
-    "name": "Drive Mad",
-    "image": "logo.jpg",
-    "url": "drive-mad",
     "new": false
   },
   {
@@ -514,12 +453,6 @@
     "new": false
   },
   {
-    "name": "Flappy Bird",
-    "image": "flappybird.jpg",
-    "url": "flappy-bird",
-    "new": false
-  },
-  {
     "name": "Flash Tetris",
     "image": "flashtetris.png",
     "url": "flashtetris",
@@ -535,12 +468,6 @@
     "name": "Five Nights at Wario's (FNAW)",
     "image": "splash.png",
     "url": "fnaw",
-    "new": false
-  },
-  {
-    "name": "Friday Night Funkin'",
-    "image": "fnf-icon.jpg",
-    "url": "fridaynightfunkin",
     "new": false
   },
   {
@@ -718,12 +645,6 @@
     "new": false
   },
   {
-    "name": "Jetpack Joyride",
-    "image": "splash.jpg",
-    "url": "jetpack-joyride",
-    "new": false
-  },
-  {
     "name": "Just Fall",
     "image": "unnamed.png",
     "url": "just-fall",
@@ -838,33 +759,9 @@
     "new": false
   },
   {
-    "name": "Moto X3M",
-    "image": "splash.jpg",
-    "url": "motox3m",
-    "new": false
-  },
-  {
     "name": "Moto X3M Pool",
     "image": "splash.jpg",
     "url": "motox3m-pool",
-    "new": false
-  },
-  {
-    "name": "Moto X3M Spooky",
-    "image": "splash.jpeg",
-    "url": "motox3m-spooky",
-    "new": false
-  },
-  {
-    "name": "Moto X3M Winter",
-    "image": "download.jpeg",
-    "url": "motox3m-winter",
-    "new": false
-  },
-  {
-    "name": "Moto X3M 2",
-    "image": "Moto-X3M-2.webp",
-    "url": "motox3m2",
     "new": false
   },
   {
@@ -883,12 +780,6 @@
     "name": "Ninja",
     "image": "logo1.png",
     "url": "ninja",
-    "new": false
-  },
-  {
-    "name": "Ninja vs Evil Corp",
-    "image": "splash.png",
-    "url": "ninjavsevilcorp",
     "new": false
   },
   {
@@ -916,12 +807,6 @@
     "new": false
   },
   {
-    "name": "OVO",
-    "image": "ovo3.png",
-    "url": "ovo",
-    "new": false
-  },
-  {
     "name": "Pandemic 2",
     "image": "pandemic2.png",
     "url": "pandemic2",
@@ -937,12 +822,6 @@
     "name": "Papa's Pizzeria",
     "image": "papaspizzaria.jpg",
     "url": "papaspizzaria",
-    "new": false
-  },
-  {
-    "name": "Paper.io 2",
-    "image": "images/icon512.png",
-    "url": "paperio2",
     "new": false
   },
   {
@@ -1081,12 +960,6 @@
     "name": "Rooftop Snipers",
     "image": "img/thumb.png",
     "url": "rooftop-snipers",
-    "new": false
-  },
-  {
-    "name": "Ruffle",
-    "image": "splash.png",
-    "url": "ruffle",
     "new": false
   },
   {
@@ -1307,12 +1180,6 @@
     "new": false
   },
   {
-    "name": "Stickman Hook",
-    "image": "unnamed.jpg",
-    "url": "stickman-hook",
-    "new": false
-  },
-  {
     "name": "Stick War",
     "image": "stickwar.jpg",
     "url": "stickwar",
@@ -1397,12 +1264,6 @@
     "new": false
   },
   {
-    "name": "Temple Run 2",
-    "image": "img/temple-run-2-256.png",
-    "url": "temple-run-2",
-    "new": false
-  },
-  {
     "name": "The Final Earth",
     "image": "images.png",
     "url": "the-final-earth",
@@ -1433,27 +1294,9 @@
     "new": false
   },
   {
-    "name": "This Is the Only Level",
-    "image": "thisistheonlylevel.png",
-    "url": "thisistheonlylevel",
-    "new": false
-  },
-  {
-    "name": "Tiny Fishing",
-    "image": "tiny-fishing.png",
-    "url": "tiny-fishing",
-    "new": false
-  },
-  {
     "name": "Tiny Islands",
     "image": "splash.png",
     "url": "tiny-islands",
-    "new": false
-  },
-  {
-    "name": "Toss the Turtle",
-    "image": "tosstheturtle.png",
-    "url": "tosstheturtle",
     "new": false
   },
   {
@@ -1484,36 +1327,6 @@
     "name": "Veloce",
     "image": "qN6zkD.png",
     "url": "veloce",
-    "new": false
-  },
-  {
-    "name": "Vex 3",
-    "image": "vex3.png",
-    "url": "vex3",
-    "new": false
-  },
-  {
-    "name": "Vex 4",
-    "image": "vex4.png",
-    "url": "vex4",
-    "new": false
-  },
-  {
-    "name": "Vex 5",
-    "image": "vex.jpeg",
-    "url": "vex5",
-    "new": false
-  },
-  {
-    "name": "Vex 6",
-    "image": "assets/icon.png",
-    "url": "vex6",
-    "new": false
-  },
-  {
-    "name": "Vex 7",
-    "image": "assets/icon.png",
-    "url": "vex7",
     "new": false
   },
   {
@@ -1556,12 +1369,6 @@
     "name": "Wolf 3D",
     "image": "art/wolf3d.png",
     "url": "wolf3d",
-    "new": false
-  },
-  {
-    "name": "Wordle",
-    "image": "img/logo_512x512.png",
-    "url": "wordle",
     "new": false
   },
   {
