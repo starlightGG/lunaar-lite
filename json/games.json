@@ -1371,13 +1371,7 @@
     "proxy": false,
     "new": false
   },
-  {
-    "name": "Slope",
-    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/198.png",
-    "url": "https://cdn.jsdelivr.net/gh/gn-math/html@main/198.html",
-    "proxy": false,
-    "new": false
-  },
+
   {
     "name": "Time Shooter 1",
     "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/199.png",
@@ -2551,13 +2545,6 @@
     "name": "Parking Fury 3D",
     "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/367.png",
     "url": "https://cdn.jsdelivr.net/gh/gn-math/html@main/367.html",
-    "proxy": false,
-    "new": false
-  },
-  {
-    "name": "Slope 2",
-    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/368.png",
-    "url": "https://cdn.jsdelivr.net/gh/gn-math/html@main/368.html",
     "proxy": false,
     "new": false
   },
