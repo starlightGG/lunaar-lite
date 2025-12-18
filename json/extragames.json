@@ -284,18 +284,7 @@
     "url": "connect3",
     "new": false
   },
-  {
-    "name": "Cookie Clicker",
-    "image": "cookie1.jpeg",
-    "url": "cookie-clicker",
-    "new": false
-  },
-  {
-    "name": "Core Ball",
-    "image": "pr_source.png",
-    "url": "core-ball",
-    "new": false
-  },
+
   {
     "name": "Craftmine",
     "image": "images/animal-sheet0.png",
